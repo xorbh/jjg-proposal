@@ -285,11 +285,17 @@
     border-radius: 8px;
     padding: 1rem 1.2rem;
     background: var(--surface);
+    display: flex;
+    flex-direction: column;
   }
 
   .plan-card.recommended {
     border-color: var(--accent);
     background: var(--accent-glow);
+  }
+
+  .plan-card .plan-table-area {
+    flex: 1;
   }
 
   .plan-total {
@@ -659,14 +665,16 @@
         <h3>Small</h3>
         <div class="plan-total">₹4,85,000</div>
         <p class="plan-desc">3 months · 1 department</p>
-        <table>
-          <tr><th>Month</th><th>Consult</th><th>Delivery</th><th>Fee</th></tr>
-          <tr><td>1</td><td>10 hrs</td><td>—</td><td>₹1,25,000</td></tr>
-          <tr><td>2</td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td></tr>
-          <tr><td>3</td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td></tr>
-        </table>
-        <p class="plan-desc">A trust-building engagement. Prove AI value in 1 department with quick wins before committing further.</p>
-        <p class="plan-desc" style="margin-top: 0.6rem; border-top: 1px solid var(--border); padding-top: 0.6rem;"><strong style="color: var(--text);">Includes:</strong><br>
+        <div class="plan-table-area">
+          <table>
+            <tr><th>Month</th><th>Consult</th><th>Delivery</th><th>Fee</th></tr>
+            <tr><td>1</td><td>10 hrs</td><td>—</td><td>₹1,25,000</td></tr>
+            <tr><td>2</td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td></tr>
+            <tr><td>3</td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td></tr>
+          </table>
+          <p class="plan-desc">A trust-building engagement. Prove AI value in 1 department with quick wins before committing further.</p>
+        </div>
+        <p class="plan-desc" style="border-top: 1px solid var(--border); padding-top: 0.6rem;"><strong style="color: var(--text);">Includes:</strong><br>
           Connectors to your systems<br>
           Claude Desktop skills & automations<br>
           Email & Telegram integrations<br>
@@ -676,17 +684,19 @@
         <h3>Medium &ensp;← recommended</h3>
         <div class="plan-total" style="color: var(--accent);">₹20,00,000</div>
         <p class="plan-desc">6 months · 3 departments</p>
-        <table>
-          <tr><th>Month</th><th>Consult</th><th>Delivery</th><th>Fee</th></tr>
-          <tr><td>1</td><td>20 hrs</td><td>—</td><td>₹2,50,000</td></tr>
-          <tr><td>2</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-          <tr><td>3</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-          <tr><td>4</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-          <tr><td>5</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-          <tr><td>6</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-        </table>
-        <p class="plan-desc">The most efficient path to real value. Enough bandwidth to build momentum across departments without outpacing adoption.</p>
-        <p class="plan-desc" style="margin-top: 0.6rem; border-top: 1px solid var(--accent); padding-top: 0.6rem;"><strong style="color: var(--accent);">Everything in Small, plus:</strong><br>
+        <div class="plan-table-area">
+          <table>
+            <tr><th>Month</th><th>Consult</th><th>Delivery</th><th>Fee</th></tr>
+            <tr><td>1</td><td>20 hrs</td><td>—</td><td>₹2,50,000</td></tr>
+            <tr><td>2</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+            <tr><td>3</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+            <tr><td>4</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+            <tr><td>5</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+            <tr><td>6</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+          </table>
+          <p class="plan-desc">The most efficient path to real value. Enough bandwidth to build momentum across departments without outpacing adoption.</p>
+        </div>
+        <p class="plan-desc" style="border-top: 1px solid var(--accent); padding-top: 0.6rem;"><strong style="color: var(--accent);">Everything in Small, plus:</strong><br>
           Dedicated middleware VM<br>
           Gatekeeper — role-based access control<br>
           Cadence — workflow automation<br>
@@ -697,17 +707,19 @@
         <h3>Large</h3>
         <div class="plan-total">₹38,50,000</div>
         <p class="plan-desc">6 months · 8 departments</p>
-        <table>
-          <tr><th>Month</th><th>Consult</th><th>Delivery</th><th>Fee</th></tr>
-          <tr><td>1</td><td>30 hrs</td><td>—</td><td>₹3,50,000</td></tr>
-          <tr><td>2</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
-          <tr><td>3</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
-          <tr><td>4</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
-          <tr><td>5</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
-          <tr><td>6</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
-        </table>
-        <p class="plan-desc">2–3 projects/month. Fast org-wide rollout across 8 departments.</p>
-        <p class="plan-desc" style="margin-top: 0.6rem; border-top: 1px solid var(--border); padding-top: 0.6rem;"><strong style="color: var(--text);">Everything in Medium, plus:</strong><br>
+        <div class="plan-table-area">
+          <table>
+            <tr><th>Month</th><th>Consult</th><th>Delivery</th><th>Fee</th></tr>
+            <tr><td>1</td><td>30 hrs</td><td>—</td><td>₹3,50,000</td></tr>
+            <tr><td>2</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+            <tr><td>3</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+            <tr><td>4</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+            <tr><td>5</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+            <tr><td>6</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+          </table>
+          <p class="plan-desc">2–3 projects/month. Fast org-wide rollout across 8 departments.</p>
+        </div>
+        <p class="plan-desc" style="border-top: 1px solid var(--border); padding-top: 0.6rem;"><strong style="color: var(--text);">Everything in Medium, plus:</strong><br>
           Gatekeeper across all 8 departments<br>
           Advanced Cadence workflows & escalations<br>
           Train-the-trainer programme<br>
