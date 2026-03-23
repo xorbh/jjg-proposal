@@ -46,7 +46,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 8vw 10vw;
+    padding: 6vw 10vw 5rem;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
@@ -155,21 +155,50 @@
     z-index: 100;
   }
 
-  .nav-hint {
+  .nav-bar {
     position: fixed;
-    bottom: 2rem;
-    left: 3rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-    opacity: 0.4;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 2rem;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    z-index: 200;
   }
 
-  .nav-hint kbd {
+  .nav-bar .slide-number {
+    position: static;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    background: var(--bg);
     border: 1px solid var(--border);
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
-    background: var(--surface);
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 5rem;
+  }
+
+  .nav-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  .nav-btn:active {
+    transform: scale(0.96);
   }
 
   .site-logo {
@@ -479,8 +508,9 @@
 
     .site-logo { display: none !important; }
     .theme-toggle { top: 0.8rem; right: 1rem; font-size: 0.6rem; padding: 0.3rem 0.6rem; }
-    .slide-number { bottom: 1rem; right: 1.5rem; font-size: 0.7rem; }
-    .nav-hint { bottom: 1rem; left: 1.5rem; font-size: 0.6rem; }
+    .nav-bar { padding: 0.6rem 1rem; }
+    .nav-bar .slide-number { font-size: 0.7rem; }
+    .nav-btn { font-size: 0.75rem; padding: 0.6rem 1rem; min-width: 4.5rem; }
 
     table { font-size: 0.75rem; }
     th, td { padding: 0.4rem 0.5rem; }
@@ -918,14 +948,20 @@
 
 </div>
 
-<div class="slide-number" id="slideNumber">1 / 14</div>
-<div class="nav-hint"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> or <kbd>Space</kbd> to navigate</div>
+<div class="nav-bar">
+  <button class="nav-btn" id="prevBtn" onclick="goTo(current - 1)">&larr; Prev</button>
+  <div class="slide-number" id="slideNumber">1 / 14</div>
+  <button class="nav-btn" id="nextBtn" onclick="goTo(current + 1)">Next &rarr;</button>
+</div>
 
 <script>
   const slides = document.querySelectorAll('.slide');
   const progress = document.getElementById('progress');
   const slideNumber = document.getElementById('slideNumber');
   let current = 0;
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
   function goTo(n) {
     if (n < 0 || n >= slides.length) return;
@@ -934,7 +970,10 @@
     slides[current].classList.add('active');
     progress.style.width = ((current + 1) / slides.length * 100) + '%';
     slideNumber.textContent = (current + 1) + ' / ' + slides.length;
+    prevBtn.style.visibility = current === 0 ? 'hidden' : 'visible';
+    nextBtn.style.visibility = current === slides.length - 1 ? 'hidden' : 'visible';
     location.hash = current + 1;
+    window.scrollTo(0, 0);
   }
 
   const themeToggle = document.getElementById('themeToggle');
