@@ -263,6 +263,33 @@
     .two-col { grid-template-columns: 1fr; }
   }
 
+  .out-of-scope {
+    --oos-red: #ef4444;
+    --oos-glow: rgba(239, 68, 68, 0.12);
+  }
+
+  .out-of-scope .tag {
+    color: var(--oos-red);
+    border-color: var(--oos-red);
+    background: var(--oos-glow);
+  }
+
+  .out-of-scope .big-number {
+    color: var(--oos-red);
+  }
+
+  .out-of-scope li::before {
+    background: var(--oos-red);
+  }
+
+  .out-of-scope li strong {
+    color: var(--oos-red);
+  }
+
+  .out-of-scope h2 span {
+    color: var(--oos-red);
+  }
+
   .note {
     margin-top: 1.5rem;
     font-size: clamp(0.8rem, 1.2vw, 0.95rem);
@@ -354,7 +381,23 @@
     <p class="note">These are illustrative. Actual projects are determined by the Month 1 discovery.</p>
   </div>
 
-  <!-- Slide 5: 6-Month Plan -->
+  <!-- Slide 5: Out of Scope -->
+  <div class="slide out-of-scope">
+    <div class="big-number">04</div>
+    <div class="tag">Scoped Separately</div>
+    <h2>Large Projects<br><span class="accent">Outside This Engagement</span></h2>
+    <p style="margin-bottom: 1rem;">Some initiatives require deep specialisation and will be scoped and quoted independently if they come up during discovery:</p>
+    <ul>
+      <li><strong class="accent">Computer vision systems</strong> — visual defect detection, automated quality inspection on the production line</li>
+      <li><strong class="accent">Custom model training</strong> — training domain-specific ML models on your proprietary data</li>
+      <li><strong class="accent">Predictive maintenance models</strong> — building ML models from sensor and machine data to predict failures</li>
+      <li><strong class="accent">Digital twin / simulation</strong> — modelling production processes for optimisation and scenario planning</li>
+      <li><strong class="accent">Full application development</strong> — standalone software products or SaaS platforms</li>
+    </ul>
+    <p class="note">If discovery surfaces any of these as high-priority, we'll scope them as separate engagements with dedicated timelines and pricing.</p>
+  </div>
+
+  <!-- Slide 6: 6-Month Plan -->
   <div class="slide" style="padding: 6vw 8vw;">
     <div class="tag">6-Month Plan</div>
     <h2>Estimated Effort<br>& <span class="accent">Investment</span></h2>
@@ -371,9 +414,9 @@
     <p class="note">Project 1 is firmly scoped. Projects 2–6 are illustrative — actual scope shaped by discovery.</p>
   </div>
 
-  <!-- Slide 6: Why This Model -->
+  <!-- Slide 7: Why This Model -->
   <div class="slide">
-    <div class="big-number">05</div>
+    <div class="big-number">06</div>
     <div class="tag">Why This Model</div>
     <h2>The Real<br><span class="accent">Bottleneck</span></h2>
     <ul>
@@ -385,9 +428,9 @@
     <p class="note">We can scale up. If adoption is fast and your teams have bandwidth, we offer more involved models with higher consulting and delivery hours.</p>
   </div>
 
-  <!-- Slide 7: Scale Options -->
+  <!-- Slide 8: Scale Options -->
   <div class="slide" style="padding: 6vw 8vw;">
-    <div class="big-number">06</div>
+    <div class="big-number">07</div>
     <div class="tag">Flexible</div>
     <h2>Scale Up<br>When <span class="accent">Ready</span></h2>
     <table>
@@ -404,9 +447,9 @@
     </ul>
   </div>
 
-  <!-- Slide 8: What We Bring -->
+  <!-- Slide 9: What We Bring -->
   <div class="slide">
-    <div class="big-number">07</div>
+    <div class="big-number">08</div>
     <div class="tag">Our Tooling</div>
     <h2>What We<br><span class="accent">Bring</span></h2>
     <ul>
@@ -418,9 +461,9 @@
     </ul>
   </div>
 
-  <!-- Slide 9: Our Tools -->
+  <!-- Slide 10: Our Tools -->
   <div class="slide">
-    <div class="big-number">08</div>
+    <div class="big-number">09</div>
     <div class="tag">Built by Kwartz</div>
     <h2>Our<br><span class="accent">Tools</span></h2>
     <ul>
@@ -430,9 +473,9 @@
     </ul>
   </div>
 
-  <!-- Slide 10: How We Work -->
+  <!-- Slide 11: How We Work -->
   <div class="slide">
-    <div class="big-number">09</div>
+    <div class="big-number">10</div>
     <div class="tag">Terms</div>
     <h2>How We<br><span class="accent">Work</span></h2>
     <ul>
@@ -446,7 +489,7 @@
     </ul>
   </div>
 
-  <!-- Slide 11: Next Steps -->
+  <!-- Slide 12: Next Steps -->
   <div class="slide">
     <div class="tag">Next Steps</div>
     <h1>Let's get<br><span class="accent">started</span></h1>
@@ -463,7 +506,7 @@
 
 </div>
 
-<div class="slide-number" id="slideNumber">1 / 11</div>
+<div class="slide-number" id="slideNumber">1 / 12</div>
 <div class="nav-hint"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> or <kbd>Space</kbd> to navigate</div>
 
 <script>
