@@ -196,6 +196,14 @@ Below is the indicative effort and cost breakdown across the engagement. All wor
 
 **Note:** Project 1 (Discovery) is the only firmly scoped project. The projects listed above (2–6) — production visibility, quality & scrap, maintenance, planning, AI assistant — are illustrative examples of the kind of work that typically follows discovery in a manufacturing environment. The actual projects, their sequencing, and priorities will be defined together based on what we find in Month 1.
 
+### What We Bring
+
+**Infrastructure.** We provision a dedicated middleware VM, pre-configured and sized for these kinds of workloads. This includes the necessary open-source tooling — orchestration, data pipelines, AI model serving, and monitoring — so there's no lead time spent setting up environments.
+
+**Delivery approach.** Development work typically involves building connectors to your existing systems (ERP, production databases, maintenance logs), designing AI skills and agents, and creating small, focused automations. We are not building full-fledged SaaS applications — the goal is practical, targeted solutions that integrate into how your teams already work.
+
+**Communication & interfaces.** Where solutions need to reach people directly — alerts, reports, queries — we prefer to integrate with **email** and **Telegram**. Both are straightforward to set up, reliable, and accessible across devices. WhatsApp integration is possible in principle but comes with significant restrictions and approval overhead, so we generally recommend against it unless there's a strong business case.
+
 ### How We Work
 
 - Projects are tackled roughly sequentially, one per month, though there may be natural overlap
