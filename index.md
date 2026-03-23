@@ -5,7 +5,7 @@ title: AI Transformation Engagement
 
 We're excited about the opportunity to partner with JJG Manufacturing on integrating AI across your operations. The engagement is structured as a series of projects, each building on the last — starting with understanding where you are today and progressively introducing automation and AI where it can make the biggest difference.
 
-All work is billed on a **time-and-materials basis**. The projects below represent the likely shape of the engagement; exact scope and sequencing will be refined together as we learn more about your operations.
+All work is billed on a **time-and-materials basis**. Project 1 (Discovery) is firmly scoped. The remaining projects shown below are illustrative — they represent the kind of work that typically follows discovery in a manufacturing environment. The actual projects will be shaped by what we find together in Month 1.
 
 ---
 
@@ -175,17 +175,19 @@ document.getElementById('row-0').classList.add('open');
 
 ## 6-Month Estimated Plan
 
-Below is the indicative effort and cost breakdown across the six projects. All work is billed on a **time-and-materials basis** — these estimates represent our best view of what each project is likely to require. Actual hours may vary as scope is refined together.
+Below is the indicative effort and cost breakdown across the engagement. All work is billed on a **time-and-materials basis**.
 
 | Project | Focus | Consulting Hours | Delivery Hours | Monthly Fee |
 |---------|-------|-----------------|----------------|-------------|
 | **1** | Discovery & opportunity mapping | 20 | — | ₹2,50,000 |
-| **2** | Production visibility & intelligence | 5 | 30 | ₹3,50,000 |
-| **3** | Quality & scrap reduction | 5 | 30 | ₹3,50,000 |
-| **4** | Maintenance & machine uptime | 5 | 30 | ₹3,50,000 |
-| **5** | Planning & delivery performance | 5 | 30 | ₹3,50,000 |
-| **6** | Operational AI assistant & knowledge capture | 5 | 30 | ₹3,50,000 |
+| **2** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
+| **3** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
+| **4** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
+| **5** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
+| **6** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
 | | | **45** | **150** | **₹20,00,000** |
+
+**Note:** Project 1 (Discovery) is the only firmly scoped project. The projects listed above (2–6) — production visibility, quality & scrap, maintenance, planning, AI assistant — are illustrative examples of the kind of work that typically follows discovery in a manufacturing environment. The actual projects, their sequencing, and priorities will be defined together based on what we find in Month 1.
 
 ### How We Work
 
