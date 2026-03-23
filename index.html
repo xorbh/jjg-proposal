@@ -259,6 +259,59 @@
     padding-left: 1.5rem;
   }
 
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .three-col h3 {
+    font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .three-col .recommended h3 { color: var(--accent); }
+
+  .three-col table { font-size: clamp(0.7rem, 1vw, 0.85rem); }
+  .three-col th, .three-col td { padding: 0.35rem 0.6rem; }
+
+  .plan-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+  }
+
+  .plan-card.recommended {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  .plan-total {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0.5rem 0 0.3rem;
+  }
+
+  .plan-card .recommended .plan-total { color: var(--accent); }
+
+  .plan-desc {
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    color: var(--muted);
+    line-height: 1.5;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .three-col { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 700px) {
     .two-col { grid-template-columns: 1fr; }
   }
@@ -597,41 +650,58 @@
     <p class="note">If discovery surfaces any of these as high-priority, we'll scope them as separate engagements with dedicated timelines and pricing.</p>
   </div>
 
-  <!-- Slide 8: Two Plans -->
-  <div class="slide" style="padding: 4vw 5vw;">
+  <!-- Slide 8: Compare Plans -->
+  <div class="slide" style="padding: 4vw 4vw;">
     <div class="tag">Choose Your Bandwidth</div>
-    <h2>Two<br><span class="accent">Plans</span></h2>
-    <div class="two-col" style="gap: 2.5rem; margin-top: 1rem;">
-      <div>
-        <h3>Small — ₹10,25,000 / 6 months</h3>
+    <h2>Pick a<br><span class="accent">Plan</span></h2>
+    <div class="three-col">
+      <div class="plan-card">
+        <h3>Small</h3>
+        <div class="plan-total">₹10,25,000</div>
+        <p class="plan-desc">6 months</p>
         <table>
-          <tr><th>Month</th><th>Consulting</th><th>Delivery</th><th>Fee</th></tr>
+          <tr><th>Month</th><th>Consult</th><th>Delivery</th><th>Fee</th></tr>
           <tr><td>1</td><td>10 hrs</td><td>—</td><td>₹1,25,000</td></tr>
           <tr><td>2</td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td></tr>
           <tr><td>3</td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td></tr>
           <tr><td>4</td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td></tr>
           <tr><td>5</td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td></tr>
           <tr><td>6</td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td></tr>
-          <tr class="total"><td></td><td>25 hrs</td><td>75 hrs</td><td>₹10,25,000</td></tr>
         </table>
-        <p class="note" style="margin-top: 0.8rem;">1 project per month. Focused discovery on 1 department. Ideal to prove value, then expand.</p>
+        <p class="plan-desc">1 project/month. 1 dept discovery. Prove value first.</p>
       </div>
-      <div>
-        <h3 style="color: var(--accent);">Medium — ₹20,00,000 / 6 months &ensp;← recommended</h3>
+      <div class="plan-card recommended">
+        <h3>Medium &ensp;← recommended</h3>
+        <div class="plan-total" style="color: var(--accent);">₹20,00,000</div>
+        <p class="plan-desc">6 months</p>
         <table>
-          <tr><th>Month</th><th>Consulting</th><th>Delivery</th><th>Fee</th></tr>
+          <tr><th>Month</th><th>Consult</th><th>Delivery</th><th>Fee</th></tr>
           <tr><td>1</td><td>20 hrs</td><td>—</td><td>₹2,50,000</td></tr>
-          <tr class="highlight"><td>2</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-          <tr class="highlight"><td>3</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-          <tr class="highlight"><td>4</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-          <tr class="highlight"><td>5</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-          <tr class="highlight"><td>6</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
-          <tr class="total"><td></td><td>45 hrs</td><td>150 hrs</td><td>₹20,00,000</td></tr>
+          <tr><td>2</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+          <tr><td>3</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+          <tr><td>4</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+          <tr><td>5</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+          <tr><td>6</td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
         </table>
-        <p class="note" style="margin-top: 0.8rem;">1–2 projects per month. Full multi-department discovery. Faster rollout, overlapping projects.</p>
+        <p class="plan-desc">1–2 projects/month. Full multi-dept discovery. Overlapping projects.</p>
+      </div>
+      <div class="plan-card">
+        <h3>Large</h3>
+        <div class="plan-total">₹38,50,000</div>
+        <p class="plan-desc">6 months</p>
+        <table>
+          <tr><th>Month</th><th>Consult</th><th>Delivery</th><th>Fee</th></tr>
+          <tr><td>1</td><td>30 hrs</td><td>—</td><td>₹3,50,000</td></tr>
+          <tr><td>2</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+          <tr><td>3</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+          <tr><td>4</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+          <tr><td>5</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+          <tr><td>6</td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td></tr>
+        </table>
+        <p class="plan-desc">2–3 projects/month. Deep discovery. Fast org-wide rollout.</p>
       </div>
     </div>
-    <p class="note">Both plans: fixed monthly fee, no hidden costs. Switch between plans with one month's notice.</p>
+    <p class="note">All plans: fixed monthly fee, no hidden costs. Switch between plans with one month's notice.</p>
   </div>
 
   <!-- Slide 9: Why This Model -->
