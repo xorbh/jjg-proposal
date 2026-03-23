@@ -220,6 +220,14 @@
 
   td:last-child, th:last-child { text-align: right; }
 
+  tr.highlight td {
+    background: var(--accent-glow);
+    color: var(--text);
+    font-weight: 600;
+    border-bottom: 1px solid var(--accent);
+    border-top: 1px solid var(--accent);
+  }
+
   tr.total td {
     border-top: 2px solid var(--accent);
     border-bottom: none;
@@ -336,7 +344,7 @@
     <table>
       <tr><th></th><th>Consulting</th><th>Delivery</th><th>Monthly Fee</th><th></th></tr>
       <tr><td><strong>Small</strong></td><td>3 hrs</td><td>15 hrs</td><td>₹1,80,000</td><td></td></tr>
-      <tr><td><strong>Medium</strong></td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td><td><span class="accent">← proposed</span></td></tr>
+      <tr class="highlight"><td><strong>Medium</strong></td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td><td><span class="accent">← proposed</span></td></tr>
       <tr><td><strong>Large</strong></td><td>10 hrs</td><td>60 hrs</td><td>₹7,00,000</td><td></td></tr>
       <tr><td><strong>Intensive</strong></td><td>20 hrs</td><td>100 hrs</td><td>₹12,00,000</td><td></td></tr>
     </table>
