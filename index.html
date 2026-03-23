@@ -172,6 +172,23 @@
     background: var(--surface);
   }
 
+  .site-logo {
+    animation: logo-float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.3));
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .site-logo:hover {
+    filter: drop-shadow(0 0 16px rgba(34, 211, 238, 0.6));
+    transform: scale(1.1);
+    animation-play-state: paused;
+  }
+
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
   .theme-toggle {
     position: fixed;
     top: 1.5rem;
@@ -475,7 +492,7 @@
 </head>
 <body>
 
-<img src="logo.png" alt="Kwartz" style="position: fixed; top: 1.2rem; left: 1.5rem; width: 56px; height: 56px; object-fit: contain; z-index: 200;">
+<img src="logo.png" alt="Kwartz" class="site-logo" style="position: fixed; top: 1.2rem; left: 1.5rem; width: 56px; height: 56px; object-fit: contain; z-index: 200;">
 <button class="theme-toggle" id="themeToggle">Light</button>
 <div class="progress" id="progress"></div>
 
