@@ -173,13 +173,26 @@ document.getElementById('row-0').classList.add('open');
 
 ---
 
-## How We Work
+## 6-Month Estimated Plan
 
-All work is billed on a **time-and-materials basis** at pre-agreed rates. This keeps things flexible — scope can shift as we learn, and you only pay for the work that gets done.
+Below is the indicative effort and cost breakdown across the six projects. All work is billed on a **time-and-materials basis** — these estimates represent our best view of what each project is likely to require. Actual hours may vary as scope is refined together.
 
-- Projects are tackled sequentially, though there may be natural overlap
+| Project | Focus | Consulting Hours | Delivery Hours | Monthly Fee |
+|---------|-------|-----------------|----------------|-------------|
+| **1** | Discovery & opportunity mapping | 20 | — | ₹2,50,000 |
+| **2** | Production visibility & intelligence | 5 | 30 | ₹3,50,000 |
+| **3** | Quality & scrap reduction | 5 | 30 | ₹3,50,000 |
+| **4** | Maintenance & machine uptime | 5 | 30 | ₹3,50,000 |
+| **5** | Planning & delivery performance | 5 | 30 | ₹3,50,000 |
+| **6** | Operational AI assistant & knowledge capture | 5 | 30 | ₹3,50,000 |
+| | | **45** | **150** | **₹20,00,000** |
+
+### How We Work
+
+- Projects are tackled roughly sequentially, one per month, though there may be natural overlap
 - Each project begins with a brief scoping conversation to align on goals and expected effort
 - Regular check-ins keep you informed without creating overhead
+- Billed monthly based on actual hours worked
 - No long-term lock-in — either party can pause or wrap up with 30 days' notice
 
 ### What's Not Included
