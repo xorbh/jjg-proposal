@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JJG Manufacturing — AI Transformation Proposal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root, [data-theme="dark"] {
+    --bg: #0a0a0b;
+    --surface: #141416;
+    --border: #1e1e22;
+    --text: #e4e4e7;
+    --muted: #a1a1aa;
+    --accent: #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.15);
+  }
+
+  [data-theme="light"] {
+    --bg: #f8f8fa;
+    --surface: #eeeef0;
+    --border: #d4d4d8;
+    --text: #18181b;
+    --muted: #3f3f46;
+    --accent: #4f46e5;
+    --accent-glow: rgba(79, 70, 229, 0.1);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .deck { height: 100vh; width: 100vw; position: relative; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8vw 10vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .slide.active { opacity: 1; pointer-events: all; }
+
+  .slide-number {
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  p, li {
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  ul { list-style: none; margin-top: 1rem; }
+
+  ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: translateY(-50%);
+  }
+
+  .accent { color: var(--accent); }
+  .muted-inline { color: var(--muted); font-weight: 300; }
+
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    background: var(--accent-glow);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+  }
+
+  .big-number {
+    font-size: clamp(5rem, 12vw, 10rem);
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.15;
+    position: absolute;
+    right: 8vw;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    margin: 1.5rem 0;
+    border-radius: 2px;
+  }
+
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+
+  .nav-hint {
+    position: fixed;
+    bottom: 2rem;
+    left: 3rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    opacity: 0.4;
+  }
+
+  .nav-hint kbd {
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: var(--surface);
+  }
+
+  .theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 200;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .theme-toggle:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.6rem 1.2rem;
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  th {
+    color: var(--text);
+    font-weight: 600;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  td:last-child, th:last-child { text-align: right; }
+
+  tr.total td {
+    border-top: 2px solid var(--accent);
+    border-bottom: none;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .note {
+    margin-top: 1.5rem;
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.6;
+    opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle">Light</button>
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+  <!-- Slide 1: Title -->
+  <div class="slide active">
+    <div class="tag">Proposal / March 2026</div>
+    <h1>AI Transformation<br>for <span class="accent">JJG Manufacturing</span></h1>
+    <div class="divider"></div>
+    <p>Prepared by Xorworks</p>
+  </div>
+
+  <!-- Slide 2: Approach -->
+  <div class="slide">
+    <div class="big-number">01</div>
+    <div class="tag">Approach</div>
+    <h2>How We'd<br><span class="accent">Work Together</span></h2>
+    <ul>
+      <li>A series of projects, each building on the last</li>
+      <li>Start with understanding where you are today</li>
+      <li>Progressively introduce AI and automation where it makes the biggest difference</li>
+      <li>All work billed on a <strong class="accent">time-and-materials</strong> basis</li>
+    </ul>
+  </div>
+
+  <!-- Slide 3: Project 1 — Discovery -->
+  <div class="slide">
+    <div class="big-number">02</div>
+    <div class="tag">Project 1</div>
+    <h2>Discovery &<br><span class="accent">Opportunity Mapping</span></h2>
+    <ul>
+      <li>Walk the floor — understand how things actually work across production, quality, maintenance, and planning</li>
+      <li>Review existing systems, data sources, and manual processes</li>
+      <li>Assess data readiness — what's available, what's reliable, where the gaps are</li>
+      <li>Deliver a prioritised opportunity map that guides everything that follows</li>
+    </ul>
+  </div>
+
+  <!-- Slide 4: Sample Projects -->
+  <div class="slide">
+    <div class="big-number">03</div>
+    <div class="tag">Illustrative — shaped by discovery</div>
+    <h2>The Kind of Projects<br>That <span class="accent">Typically Follow</span></h2>
+    <ul>
+      <li><strong class="accent">Production visibility</strong> — surfacing yield, scrap, cycle times; anomaly detection and trend analysis</li>
+      <li><strong class="accent">Quality & scrap reduction</strong> — root cause patterns, predictive flagging, tighter feedback loops</li>
+      <li><strong class="accent">Maintenance & uptime</strong> — condition-based scheduling, reducing unplanned downtime</li>
+      <li><strong class="accent">Planning & delivery</strong> — AI-assisted scheduling, OTD improvement, capacity visibility</li>
+      <li><strong class="accent">AI assistant</strong> — cross-system information access, capturing institutional knowledge</li>
+    </ul>
+    <p class="note">Actual projects, sequencing, and priorities will be defined together based on what we find in Month 1.</p>
+  </div>
+
+  <!-- Slide 5: 6-Month Plan -->
+  <div class="slide" style="padding: 6vw 8vw;">
+    <div class="tag">6-Month Plan</div>
+    <h2>Estimated Effort<br>& <span class="accent">Investment</span></h2>
+    <table>
+      <tr><th>Project</th><th>Focus</th><th>Consulting</th><th>Delivery</th><th>Monthly Fee</th></tr>
+      <tr><td>1</td><td>Discovery & opportunity mapping</td><td>20 hrs</td><td>—</td><td>₹2,50,000</td></tr>
+      <tr><td>2</td><td>Determined by discovery <span class="muted-inline">(e.g. production visibility)</span></td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+      <tr><td>3</td><td>Determined by discovery <span class="muted-inline">(e.g. quality & scrap)</span></td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+      <tr><td>4</td><td>Determined by discovery <span class="muted-inline">(e.g. maintenance & uptime)</span></td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+      <tr><td>5</td><td>Determined by discovery <span class="muted-inline">(e.g. planning & delivery)</span></td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+      <tr><td>6</td><td>Determined by discovery <span class="muted-inline">(e.g. AI assistant)</span></td><td>5 hrs</td><td>30 hrs</td><td>₹3,50,000</td></tr>
+      <tr class="total"><td></td><td></td><td>45 hrs</td><td>150 hrs</td><td>₹20,00,000</td></tr>
+    </table>
+    <p class="note">Project 1 is firmly scoped. Projects 2–6 are illustrative — actual scope shaped by discovery.</p>
+  </div>
+
+  <!-- Slide 6: What We Bring -->
+  <div class="slide">
+    <div class="big-number">04</div>
+    <div class="tag">Our Tooling</div>
+    <h2>What We<br><span class="accent">Bring</span></h2>
+    <ul>
+      <li><strong class="accent">Infrastructure</strong> — a dedicated middleware VM, pre-provisioned and sized for these workloads, with the necessary open-source tooling already in place</li>
+      <li><strong class="accent">Delivery</strong> — building connectors, designing AI skills, small focused automations. Not full-fledged SaaS applications.</li>
+      <li><strong class="accent">Communication</strong> — we integrate with email and Telegram. WhatsApp is possible but comes with significant restrictions, so we recommend against it unless there's a strong case.</li>
+    </ul>
+  </div>
+
+  <!-- Slide 7: How We Work -->
+  <div class="slide">
+    <div class="big-number">05</div>
+    <div class="tag">Terms</div>
+    <h2>How We<br><span class="accent">Work</span></h2>
+    <ul>
+      <li>Projects tackled roughly sequentially, one per month</li>
+      <li>Each project starts with a brief scoping conversation</li>
+      <li>Regular check-ins — no overhead, no ceremony</li>
+      <li>Billed monthly based on actual hours worked</li>
+      <li>No long-term lock-in — either party can pause with 30 days' notice</li>
+      <li>Third-party platform/infra costs and travel billed separately at cost</li>
+    </ul>
+  </div>
+
+  <!-- Slide 8: Next Steps -->
+  <div class="slide">
+    <div class="tag">Next Steps</div>
+    <h1>Let's get<br><span class="accent">started</span></h1>
+    <div class="divider"></div>
+    <ul>
+      <li>Are there areas you'd want to prioritise — or defer?</li>
+      <li>Who would be the key contacts on the JJG side?</li>
+      <li>What does your preferred timeline look like?</li>
+    </ul>
+    <p style="margin-top: 2rem; color: var(--text); font-size: clamp(1rem, 1.6vw, 1.2rem);">
+      <span class="accent">Xorworks</span> — AI Solutions for Manufacturing
+    </p>
+  </div>
+
+</div>
+
+<div class="slide-number" id="slideNumber">1 / 8</div>
+<div class="nav-hint"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> or <kbd>Space</kbd> to navigate</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  const slideNumber = document.getElementById('slideNumber');
+  let current = 0;
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    progress.style.width = ((current + 1) / slides.length * 100) + '%';
+    slideNumber.textContent = (current + 1) + ' / ' + slides.length;
+    location.hash = current + 1;
+  }
+
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('deckTheme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  themeToggle.textContent = savedTheme === 'dark' ? 'Light' : 'Dark';
+
+  themeToggle.addEventListener('click', () => {
+    const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('deckTheme', t);
+    themeToggle.textContent = t === 'dark' ? 'Light' : 'Dark';
+  });
+
+  const hash = parseInt(location.hash.replace('#', ''), 10);
+  if (hash >= 1 && hash <= slides.length) goTo(hash - 1);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      goTo(current + 1);
+    }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      goTo(current - 1);
+    }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End') goTo(slides.length - 1);
+    if (e.key === 't' || e.key === 'T') themeToggle.click();
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? goTo(current + 1) : goTo(current - 1);
+  });
+</script>
+
+</body>
+</html>
