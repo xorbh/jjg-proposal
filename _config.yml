@@ -1,0 +1,13 @@
+title: AI Transformation Proposal
+description: Proposed engagement models for JJG Manufacturing — Xorworks
+baseurl: /jjg-proposal
+url: https://xorbh.github.io
+
+markdown: kramdown
+highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
