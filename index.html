@@ -290,8 +290,23 @@
   }
 
   .plan-card.recommended {
-    border-color: var(--accent);
-    background: var(--accent-glow);
+    border-color: var(--border);
+    background: var(--surface);
+  }
+
+  .plan-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background: var(--accent);
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
   }
 
   .plan-card .plan-table-area {
@@ -693,7 +708,7 @@
           Runs on your existing infra</p>
       </div>
       <div class="plan-card recommended">
-        <h3>Medium &ensp;← recommended</h3>
+        <h3>Medium <span class="plan-badge">Recommended</span></h3>
         <p class="plan-tagline" style="color: var(--accent);">The most efficient path to value</p>
         <div class="plan-total" style="color: var(--accent);">₹20,00,000</div>
         <p class="plan-desc">6 months · 3 departments</p>
