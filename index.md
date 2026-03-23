@@ -180,11 +180,11 @@ Below is the indicative effort and cost breakdown across the engagement. All wor
 | Project | Focus | Consulting Hours | Delivery Hours | Monthly Fee |
 |---------|-------|-----------------|----------------|-------------|
 | **1** | Discovery & opportunity mapping | 20 | — | ₹2,50,000 |
-| **2** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
-| **3** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
-| **4** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
-| **5** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
-| **6** | *Determined by discovery* | 5 | 30 | ₹3,50,000 |
+| **2** | Determined by discovery *(e.g. production visibility & intelligence)* | 5 | 30 | ₹3,50,000 |
+| **3** | Determined by discovery *(e.g. quality & scrap reduction)* | 5 | 30 | ₹3,50,000 |
+| **4** | Determined by discovery *(e.g. maintenance & machine uptime)* | 5 | 30 | ₹3,50,000 |
+| **5** | Determined by discovery *(e.g. planning & delivery performance)* | 5 | 30 | ₹3,50,000 |
+| **6** | Determined by discovery *(e.g. AI assistant & knowledge capture)* | 5 | 30 | ₹3,50,000 |
 | | | **45** | **150** | **₹20,00,000** |
 
 **Note:** Project 1 (Discovery) is the only firmly scoped project. The projects listed above (2–6) — production visibility, quality & scrap, maintenance, planning, AI assistant — are illustrative examples of the kind of work that typically follows discovery in a manufacturing environment. The actual projects, their sequencing, and priorities will be defined together based on what we find in Month 1.
