@@ -263,6 +263,93 @@
     .two-col { grid-template-columns: 1fr; }
   }
 
+  .lifecycle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 2rem 0 1.5rem;
+  }
+
+  .lifecycle-step {
+    text-align: center;
+    flex: 1;
+    padding: 1.2rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    position: relative;
+  }
+
+  .lifecycle-step.active-step {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  .lifecycle-step h3 {
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+
+  .lifecycle-step p {
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .lifecycle-arrow {
+    font-size: 1.5rem;
+    color: var(--accent);
+    padding: 0 0.8rem;
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  .lifecycle-loop {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+  }
+
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .vs-grid h3 {
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .vs-grid .old h3 { color: var(--muted); }
+  .vs-grid .new h3 { color: var(--accent); }
+
+  .vs-grid ul { margin-top: 0; }
+  .vs-grid li {
+    font-size: clamp(0.85rem, 1.3vw, 1rem);
+    padding: 0.3rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .vs-grid .old li::before { background: var(--muted); opacity: 0.4; }
+
+  @media (max-width: 700px) {
+    .vs-grid { grid-template-columns: 1fr; }
+    .lifecycle { flex-direction: column; }
+    .lifecycle-arrow { transform: rotate(90deg); padding: 0.3rem 0; }
+  }
+
   .out-of-scope {
     --oos-red: #ef4444;
     --oos-glow: rgba(239, 68, 68, 0.12);
@@ -328,9 +415,95 @@
     </ul>
   </div>
 
-  <!-- Slide 3: Month 1 — Discovery -->
+  <!-- Slide 3: AI Project Lifecycle -->
+  <div class="slide" style="padding: 5vw 7vw;">
+    <div class="tag">Why AI Is Different</div>
+    <h2>The AI Project<br><span class="accent">Lifecycle</span></h2>
+
+    <div class="lifecycle">
+      <div class="lifecycle-step active-step">
+        <h3>Discovery</h3>
+        <p>Understand the problem,<br>the data, the people</p>
+      </div>
+      <div class="lifecycle-arrow">&rarr;</div>
+      <div class="lifecycle-step active-step">
+        <h3>Build</h3>
+        <p>Prototype fast,<br>test with real users</p>
+      </div>
+      <div class="lifecycle-arrow">&rarr;</div>
+      <div class="lifecycle-step active-step">
+        <h3>Adopt</h3>
+        <p>Get teams using it,<br>gather feedback</p>
+      </div>
+      <div class="lifecycle-arrow">&rarr;</div>
+      <div class="lifecycle-step active-step">
+        <h3>Tailor</h3>
+        <p>Refine based on<br>real-world usage</p>
+      </div>
+    </div>
+    <div class="lifecycle-loop">&larr;&ensp;continuous loop — each project cycles through this&ensp;&rarr;</div>
+
+    <svg viewBox="0 0 800 170" style="width: 100%; margin: 1.5rem 0 0.5rem; max-height: 22vh;" preserveAspectRatio="xMidYMid meet">
+      <!-- Labels -->
+      <text x="0" y="18" fill="var(--muted)" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.05em">OVERLAPPING PROJECTS</text>
+      <!-- Month labels -->
+      <text x="80" y="42" fill="var(--muted)" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">M2</text>
+      <text x="220" y="42" fill="var(--muted)" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">M3</text>
+      <text x="360" y="42" fill="var(--muted)" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">M4</text>
+      <text x="500" y="42" fill="var(--muted)" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">M5</text>
+      <text x="640" y="42" fill="var(--muted)" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">M6</text>
+      <!-- Dividers -->
+      <line x1="150" y1="35" x2="150" y2="165" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3,3"/>
+      <line x1="290" y1="35" x2="290" y2="165" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3,3"/>
+      <line x1="430" y1="35" x2="430" y2="165" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3,3"/>
+      <line x1="570" y1="35" x2="570" y2="165" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3,3"/>
+      <!-- Project A: build full, then tailor overlapping with B -->
+      <rect x="10" y="52" width="200" height="22" rx="4" fill="var(--accent)" opacity="0.7"/>
+      <rect x="210" y="52" width="120" height="22" rx="4" fill="var(--accent)" opacity="0.25"/>
+      <text x="110" y="67" fill="var(--bg)" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Project A — Build</text>
+      <text x="270" y="67" fill="var(--accent)" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Adopt & Tailor</text>
+      <!-- Project B: starts mid-A tailor, overlaps -->
+      <rect x="150" y="86" width="200" height="22" rx="4" fill="var(--accent)" opacity="0.7"/>
+      <rect x="350" y="86" width="120" height="22" rx="4" fill="var(--accent)" opacity="0.25"/>
+      <text x="250" y="101" fill="var(--bg)" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Project B — Build</text>
+      <text x="410" y="101" fill="var(--accent)" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Adopt & Tailor</text>
+      <!-- Project C -->
+      <rect x="290" y="120" width="200" height="22" rx="4" fill="var(--accent)" opacity="0.7"/>
+      <rect x="490" y="120" width="120" height="22" rx="4" fill="var(--accent)" opacity="0.25"/>
+      <text x="390" y="135" fill="var(--bg)" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Project C — Build</text>
+      <text x="550" y="135" fill="var(--accent)" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Adopt & Tailor</text>
+      <!-- Project D -->
+      <rect x="430" y="154" width="200" height="22" rx="4" fill="var(--accent)" opacity="0.7"/>
+      <rect x="630" y="154" width="100" height="22" rx="4" fill="var(--accent)" opacity="0.25"/>
+      <text x="530" y="169" fill="var(--bg)" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Project D — Build</text>
+      <text x="680" y="169" fill="var(--accent)" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Adopt & Tailor</text>
+    </svg>
+
+    <div class="vs-grid">
+      <div class="old">
+        <h3>Traditional Software</h3>
+        <ul>
+          <li>Long requirements gathering upfront</li>
+          <li>Big bang delivery after months of building</li>
+          <li>One project finishes before next starts</li>
+          <li>Change is expensive and slow</li>
+        </ul>
+      </div>
+      <div class="new">
+        <h3>AI Projects</h3>
+        <ul>
+          <li>Start small, learn fast, iterate</li>
+          <li>Working prototypes in days, not months</li>
+          <li>New projects start while previous ones stabilise</li>
+          <li>Tailoring is the work — it never really "launches"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Month 1 — Discovery -->
   <div class="slide">
-    <div class="big-number">02</div>
+    <div class="big-number">03</div>
     <div class="tag">Month 1 — Discovery Only</div>
     <h2>Discovery &<br><span class="accent">Opportunity Mapping</span></h2>
     <ul>
@@ -342,9 +515,9 @@
     <p class="note">This month is consulting only — 20 hours. No development. The output is the roadmap that shapes all subsequent work.</p>
   </div>
 
-  <!-- Slide 4: Months 2–6 — Consulting + Delivery -->
+  <!-- Slide 5: Months 2–6 — Consulting + Delivery -->
   <div class="slide" style="padding: 6vw 8vw;">
-    <div class="big-number">03</div>
+    <div class="big-number">04</div>
     <div class="tag">Months 2–6 — Consulting + Delivery</div>
     <h2>1–2 Projects<br><span class="accent">Per Month</span></h2>
     <p style="margin-bottom: 1rem;">Each month includes 5 hours of consulting to refine priorities, plus 30 hours of hands-on delivery. Examples:</p>
@@ -381,9 +554,9 @@
     <p class="note">These are illustrative. Actual projects are determined by the Month 1 discovery.</p>
   </div>
 
-  <!-- Slide 5: Out of Scope -->
+  <!-- Slide 6: Out of Scope -->
   <div class="slide out-of-scope">
-    <div class="big-number">04</div>
+    <div class="big-number">05</div>
     <div class="tag">Scoped Separately</div>
     <h2>Large Projects<br><span class="accent">Outside This Engagement</span></h2>
     <p style="margin-bottom: 1rem;">Some initiatives require deep specialisation and will be scoped and quoted independently if they come up during discovery:</p>
@@ -397,7 +570,7 @@
     <p class="note">If discovery surfaces any of these as high-priority, we'll scope them as separate engagements with dedicated timelines and pricing.</p>
   </div>
 
-  <!-- Slide 6: 6-Month Plan -->
+  <!-- Slide 7: 6-Month Plan -->
   <div class="slide" style="padding: 6vw 8vw;">
     <div class="tag">6-Month Plan</div>
     <h2>Estimated Effort<br>& <span class="accent">Investment</span></h2>
@@ -414,9 +587,9 @@
     <p class="note">Project 1 is firmly scoped. Projects 2–6 are illustrative — actual scope shaped by discovery.</p>
   </div>
 
-  <!-- Slide 7: Why This Model -->
+  <!-- Slide 8: Why This Model -->
   <div class="slide">
-    <div class="big-number">06</div>
+    <div class="big-number">07</div>
     <div class="tag">Why This Model</div>
     <h2>The Real<br><span class="accent">Bottleneck</span></h2>
     <ul>
@@ -428,9 +601,9 @@
     <p class="note">We can scale up. If adoption is fast and your teams have bandwidth, we offer more involved models with higher consulting and delivery hours.</p>
   </div>
 
-  <!-- Slide 8: Scale Options -->
+  <!-- Slide 9: Scale Options -->
   <div class="slide" style="padding: 6vw 8vw;">
-    <div class="big-number">07</div>
+    <div class="big-number">08</div>
     <div class="tag">Flexible</div>
     <h2>Scale Up<br>When <span class="accent">Ready</span></h2>
     <table>
@@ -447,9 +620,9 @@
     </ul>
   </div>
 
-  <!-- Slide 9: What We Bring -->
+  <!-- Slide 10: What We Bring -->
   <div class="slide">
-    <div class="big-number">08</div>
+    <div class="big-number">09</div>
     <div class="tag">Our Tooling</div>
     <h2>What We<br><span class="accent">Bring</span></h2>
     <ul>
@@ -461,9 +634,9 @@
     </ul>
   </div>
 
-  <!-- Slide 10: Our Tools -->
+  <!-- Slide 11: Our Tools -->
   <div class="slide">
-    <div class="big-number">09</div>
+    <div class="big-number">10</div>
     <div class="tag">Built by Kwartz</div>
     <h2>Our<br><span class="accent">Tools</span></h2>
     <ul>
@@ -473,9 +646,9 @@
     </ul>
   </div>
 
-  <!-- Slide 11: How We Work -->
+  <!-- Slide 12: How We Work -->
   <div class="slide">
-    <div class="big-number">10</div>
+    <div class="big-number">11</div>
     <div class="tag">Terms</div>
     <h2>How We<br><span class="accent">Work</span></h2>
     <ul>
@@ -489,7 +662,7 @@
     </ul>
   </div>
 
-  <!-- Slide 12: Next Steps -->
+  <!-- Slide 13: Next Steps -->
   <div class="slide">
     <div class="tag">Next Steps</div>
     <h1>Let's get<br><span class="accent">started</span></h1>
@@ -506,7 +679,7 @@
 
 </div>
 
-<div class="slide-number" id="slideNumber">1 / 12</div>
+<div class="slide-number" id="slideNumber">1 / 13</div>
 <div class="nav-hint"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> or <kbd>Space</kbd> to navigate</div>
 
 <script>
