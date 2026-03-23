@@ -970,11 +970,19 @@
     if (e.key === 't' || e.key === 'T') themeToggle.click();
   });
 
-  let touchStartX = 0;
-  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  let touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  });
   document.addEventListener('touchend', (e) => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) diff > 0 ? goTo(current + 1) : goTo(current - 1);
+    const diffX = touchStartX - e.changedTouches[0].clientX;
+    const diffY = touchStartY - e.changedTouches[0].clientY;
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+      diffX > 0 ? goTo(current + 1) : goTo(current - 1);
+    } else if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 50) {
+      diffY > 0 ? goTo(current + 1) : goTo(current - 1);
+    }
   });
 </script>
 
