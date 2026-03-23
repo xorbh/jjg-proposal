@@ -461,10 +461,11 @@
     .slide {
       position: relative;
       display: none;
-      padding: 5rem 1.5rem 4rem;
-      min-height: 100vh;
+      padding: 4rem 1.5rem 5rem;
+      min-height: auto;
+      height: auto;
       justify-content: flex-start;
-      overflow-y: auto;
+      overflow-y: visible;
     }
     .slide.active { display: flex; opacity: 1; }
 
@@ -476,7 +477,7 @@
 
     .tag { font-size: 0.65rem; padding: 0.2rem 0.6rem; margin-bottom: 1rem; }
 
-    .site-logo { width: 40px !important; height: 40px !important; top: 0.8rem !important; left: 1rem !important; }
+    .site-logo { display: none !important; }
     .theme-toggle { top: 0.8rem; right: 1rem; font-size: 0.6rem; padding: 0.3rem 0.6rem; }
     .slide-number { bottom: 1rem; right: 1.5rem; font-size: 0.7rem; }
     .nav-hint { bottom: 1rem; left: 1.5rem; font-size: 0.6rem; }
