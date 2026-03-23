@@ -235,6 +235,33 @@
     font-weight: 600;
   }
 
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 3rem;
+    margin-top: 1rem;
+  }
+
+  .two-col h3 {
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .two-col ul { margin-top: 0; }
+
+  .two-col li {
+    font-size: clamp(0.85rem, 1.3vw, 1rem);
+    padding: 0.3rem 0;
+  }
+
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
   .note {
     margin-top: 1.5rem;
     font-size: clamp(0.8rem, 1.2vw, 0.95rem);
@@ -292,17 +319,37 @@
     <div class="big-number">03</div>
     <div class="tag">Months 2–6 — Consulting + Delivery</div>
     <h2>1–2 Projects<br><span class="accent">Per Month</span></h2>
-    <p style="margin-bottom: 1rem;">Each month includes 5 hours of consulting to refine priorities, plus 30 hours of hands-on delivery. Examples of the kind of things we'd build:</p>
-    <ul>
-      <li><strong class="accent">CEO / MD dashboard</strong> — natural language querying of business data ("What drove scrap last month?")</li>
-      <li><strong class="accent">Invoice processing</strong> — extract and classify data from invoices automatically</li>
-      <li><strong class="accent">Demand forecasting</strong> — predict inventory needs to reduce over/understocking</li>
-      <li><strong class="accent">Vendor management</strong> — summarise contracts, flag renewal dates, compare bids</li>
-      <li><strong class="accent">Meeting summarisation</strong> — auto-generate action items from calls</li>
-      <li><strong class="accent">Process documentation</strong> — auto-generate SOPs from recorded workflows</li>
-      <li><strong class="accent">Anomaly detection</strong> — flag unusual transactions, production deviations, or maintenance patterns</li>
-      <li><strong class="accent">CRM auto-fill</strong> — automatically log call notes, emails, and next steps</li>
-    </ul>
+    <p style="margin-bottom: 1rem;">Each month includes 5 hours of consulting to refine priorities, plus 30 hours of hands-on delivery. Examples:</p>
+    <div class="two-col">
+      <div>
+        <h3>Operations & Finance</h3>
+        <ul>
+          <li><strong class="accent">CEO / MD dashboard</strong> — "What drove scrap last month?"</li>
+          <li><strong class="accent">Invoice processing</strong> — extract and classify data automatically</li>
+          <li><strong class="accent">Demand forecasting</strong> — predict inventory needs</li>
+          <li><strong class="accent">Vendor management</strong> — summarise contracts, flag renewals</li>
+          <li><strong class="accent">Anomaly detection</strong> — flag unusual transactions or deviations</li>
+          <li><strong class="accent">Process documentation</strong> — auto-generate SOPs</li>
+          <li><strong class="accent">Meeting summarisation</strong> — action items from calls</li>
+          <li><strong class="accent">Cash flow forecasting</strong> — predict short-term cash needs</li>
+          <li><strong class="accent">Expense categorisation</strong> — auto-tag transactions from bank feeds</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Sales & Customer</h3>
+        <ul>
+          <li><strong class="accent">Outbound personalisation</strong> — AI-written emails tailored to each prospect</li>
+          <li><strong class="accent">CRM auto-fill</strong> — log call notes, emails, and next steps</li>
+          <li><strong class="accent">Sales forecasting</strong> — predict pipeline close rates and revenue</li>
+          <li><strong class="accent">Proposal generation</strong> — draft quotes and proposals from templates</li>
+          <li><strong class="accent">Customer segmentation</strong> — cluster by behaviour for targeted campaigns</li>
+          <li><strong class="accent">Chatbot / assistant</strong> — 24/7 lead capture and qualification</li>
+          <li><strong class="accent">Email campaigns</strong> — segmentation, personalisation, A/B testing</li>
+          <li><strong class="accent">Competitive intelligence</strong> — monitor competitors, summarise news</li>
+          <li><strong class="accent">Content generation</strong> — blog posts, social media, ad copy</li>
+        </ul>
+      </div>
+    </div>
     <p class="note">These are illustrative. Actual projects are determined by the Month 1 discovery.</p>
   </div>
 
