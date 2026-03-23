@@ -24,6 +24,8 @@ All work is billed on a **time-and-materials basis**. Project 1 (Discovery) is f
   .detail-block h4 { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
   .detail-list { display: flex; flex-direction: column; gap: 6px; }
   .detail-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: #333; line-height: 1.45; }
+  .proj-row.sample { border-style: dashed; background: #fafafa; }
+  .sample-badge { display: inline-block; font-size: 10px; font-weight: 600; color: #888; background: #eee; padding: 1px 6px; border-radius: 3px; margin-left: 8px; vertical-align: middle; letter-spacing: .03em; }
   @media (max-width: 540px) { .details-grid { grid-template-columns: 1fr; } }
 </style>
 
@@ -47,8 +49,9 @@ const projects = [
     ]
   },
   {
-    label: "Project 2",
-    theme: "Production visibility & intelligence",
+    label: "Sample Project 2",
+    theme: "e.g. Production visibility & intelligence",
+    sample: true,
     advisory: [
       "Explore how production data could be surfaced more effectively — yield, scrap, cycle times, operator performance",
       "Identify opportunities for AI-driven insights such as anomaly detection, trend analysis, or predictive alerts",
@@ -61,8 +64,9 @@ const projects = [
     ]
   },
   {
-    label: "Project 3",
-    theme: "Quality & scrap reduction",
+    label: "Sample Project 3",
+    theme: "e.g. Quality & scrap reduction",
+    sample: true,
     advisory: [
       "Investigate patterns in scrap and rework data — where losses are concentrated and what drives them",
       "Explore whether predictive models could flag at-risk batches or processes before defects occur",
@@ -75,8 +79,9 @@ const projects = [
     ]
   },
   {
-    label: "Project 4",
-    theme: "Maintenance & machine uptime",
+    label: "Sample Project 4",
+    theme: "e.g. Maintenance & machine uptime",
+    sample: true,
     advisory: [
       "Review current maintenance practices — how issues are logged, how preventive schedules are managed, where breakdowns cause the most disruption",
       "Assess whether machine and sensor data could support condition-based or predictive maintenance approaches",
@@ -89,8 +94,9 @@ const projects = [
     ]
   },
   {
-    label: "Project 5",
-    theme: "Planning & delivery performance",
+    label: "Sample Project 5",
+    theme: "e.g. Planning & delivery performance",
+    sample: true,
     advisory: [
       "Look at how production planning, scheduling, and delivery commitments could be better informed by real-time data",
       "Explore AI-assisted forecasting and scheduling to improve on-time delivery",
@@ -103,8 +109,9 @@ const projects = [
     ]
   },
   {
-    label: "Project 6",
-    theme: "Operational AI assistant & knowledge capture",
+    label: "Sample Project 6",
+    theme: "e.g. Operational AI assistant & knowledge capture",
+    sample: true,
     advisory: [
       "Explore how an AI assistant could help teams access information, answer operational questions, and surface relevant data across systems",
       "Consider how institutional knowledge — tribal knowledge, SOPs, historical decisions — could be captured and made accessible",
@@ -122,12 +129,12 @@ function render() {
   const tl = document.getElementById('timeline');
   projects.forEach((p, i) => {
     const div = document.createElement('div');
-    div.className = 'proj-row';
+    div.className = 'proj-row' + (p.sample ? ' sample' : '');
     div.id = 'row-' + i;
     div.innerHTML = `
       <div class="proj-header" onclick="toggle(${i})">
         <div>
-          <div class="proj-label">${p.label}</div>
+          <div class="proj-label">${p.label}${p.sample ? '<span class="sample-badge">ILLUSTRATIVE</span>' : ''}</div>
           <div class="proj-theme">${p.theme}</div>
         </div>
         <div class="chevron">▼</div>
